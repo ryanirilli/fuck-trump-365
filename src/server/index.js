@@ -8,6 +8,7 @@ app.set('port', (process.env.PORT || 5000));
 app.get('/*', function(req, res) {
   const {originalUrl} = req;
   if (originalUrl.match(staticAssetsRegex)) {
+    console.log('ASSET: ', originalUrl);
     const assetPath = path.join(__dirname, '../../dist', originalUrl);
     return res.sendFile(path.resolve(__dirname, 'dist', assetPath));
   }

@@ -31,7 +31,7 @@ module.exports = function(env) {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         loaders: [
-          'file-loader',
+          'file-loader?hash=sha512&digest=hex&name=static/[hash].[ext]',
           {
             loader: 'image-webpack-loader',
             query: {
