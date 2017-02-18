@@ -12,20 +12,20 @@ module.exports = function(env) {
     },
     output: {
       filename: '[chunkhash].[name].js',
-      path: path.resolve('./dist')
+      path: path.resolve('./dist/static')
     },
     module: {
       rules: [{
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: 'babel-loader'
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: ['css-loader', 'sass-loader']
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
         })
       }]
     },
@@ -36,8 +36,8 @@ module.exports = function(env) {
     plugins: [
       new webpack.optimize.CommonsChunkPlugin({names: ['vendor', 'manifest']}),
       new CleanWebpackPlugin(['dist']),
-      new HtmlWebpackPlugin({template: '!!handlebars-loader!src/index.hbs'}),
-      new ExtractTextPlugin('./styles-[contenthash].css')
+      new HtmlWebpackPlugin({template: '!!handlebars-loader!src/index.hbs', filename: './../index.html'}),
+      new ExtractTextPlugin('styles-[contenthash].css')
     ]
   }
 };
