@@ -36,8 +36,17 @@ module.exports = function(env) {
     plugins: [
       new webpack.optimize.CommonsChunkPlugin({names: ['vendor', 'manifest']}),
       new CleanWebpackPlugin(['dist']),
-      new HtmlWebpackPlugin({template: '!!handlebars-loader!src/index.hbs', filename: './../index.html'}),
+      new HtmlWebpackPlugin(getHtmlWebpackPluginOpts()),
       new ExtractTextPlugin('styles-[contenthash].css')
     ]
   }
 };
+
+function getHtmlWebpackPluginOpts() {
+  const opts = {template: '!!handlebars-loader!src/index.hbs'};
+  const env = process.env.NODE_ENV;
+  if (env === 'development') {
+    return opts;
+  }
+  return Object.assign({}, opts, {filename: './../index.html'})
+}
