@@ -27,7 +27,20 @@ module.exports = function(env) {
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
         })
-      }]
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        loaders: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            query: {
+              progressive: true
+            }
+          }
+        ]
+      }
+    ]
     },
     devtool: "source-map",
     devServer: {
