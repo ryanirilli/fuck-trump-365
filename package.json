@@ -16,7 +16,8 @@
   "scripts": {
     "serve": "node_modules/.bin/webpack-dev-server",
     "build": "webpack --config webpack.config.js",
-    "build:prod": "webpack -p --config webpack.config.js"
+    "build:prod": "webpack -p --config webpack.config.js",
+    "heroku-postbuild": "webpack -p --config webpack.config.js"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.2.0-rc.0"
