@@ -119,8 +119,9 @@ $mq-breakpoints: (
 
 $inuit-offsets: true;
 $inuit-fractions: 1 2 3 4 5 6 7 8 9 10 11 12;
-@import "~inuitcss/utilities/utilities.widths";
 @import "~inuitcss/utilities/utilities.headings";
-@import "~inuitcss/utilities/utilities.spacing";
-@import "~inuitcss/utilities/utilities.print";
 @import "~inuitcss/utilities/utilities.hide";
+@import "~inuitcss/utilities/utilities.print";
+@import "~inuitcss/utilities/utilities.spacing";
+@import "utilities/utilities.text";
+@import "~inuitcss/utilities/utilities.widths";

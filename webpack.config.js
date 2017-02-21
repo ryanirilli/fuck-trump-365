@@ -44,7 +44,13 @@ module.exports = function(env) {
     },
     devtool: "source-map",
     devServer: {
-      historyApiFallback: true
+      historyApiFallback: true,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:5000',
+          secure: false
+        }
+      }
     },
     plugins: [
       new webpack.optimize.CommonsChunkPlugin({names: ['vendor', 'manifest']}),

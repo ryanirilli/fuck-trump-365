@@ -1,16 +1,21 @@
+import 'whatwg-fetch';
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import {createStore, combineReducers} from 'redux';
+import { Provider  } from 'react-redux';
+import thunk from 'redux-thunk';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
 import AppContainer from './client/components/app-container';
 import './client/styles/main.scss';
 import {getDeviceInfo} from './client/device';
 import {debounce} from './client/utils/utils';
 
 import appReducer from './client/reducers/app-reducer';
+import tracksReducer from './client/reducers/tracks-reducer';
+
 const store = createStore(combineReducers({
-  app: appReducer
-}));
+  app: appReducer,
+  tracks: tracksReducer
+}), applyMiddleware(thunk));
 
 function setDevice() {
   store.dispatch({

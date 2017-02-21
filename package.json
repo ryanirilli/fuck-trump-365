@@ -32,6 +32,9 @@
     "css-loader": "^0.26.1",
     "express": "^4.14.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
+    "google-auth-library": "^0.10.0",
+    "google-spreadsheet": "^2.0.3",
+    "googleapis": "^16.1.0",
     "handlebars": "^4.0.6",
     "handlebars-loader": "^1.4.0",
     "html-webpack-plugin": "^2.26.0",
@@ -45,8 +48,10 @@
     "react-redux": "^5.0.2",
     "react-router": "^4.0.0-alpha.6",
     "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
-    "webpack": "^2.2.0-rc.4"
+    "webpack": "^2.2.0-rc.4",
+    "whatwg-fetch": "^2.0.2"
   }
 }
